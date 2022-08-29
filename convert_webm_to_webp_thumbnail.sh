@@ -52,7 +52,9 @@ echo '##########################################################################
                 
                     ###STICKER
                     sub_folder11=$frameFolderPathOutput
-                    ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:134 -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name".webp"
+#                    ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:134 -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name".webp"
+
+                ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=60,scale=134:134 "$sub_folder11"/$file_name".webp"
 
             done
             echo "[Stickers]  ------------- finished"
@@ -87,19 +89,23 @@ echo '##########################################################################
             
                 *"$TYPE_11"*)
                         sub_folder11=$frameFolderPathOutput
-                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:134 -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 11.webp"
+#                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:134 -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 11.webp"
+
+                ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=60,scale=134:134 "$sub_folder11"/$file_name" 11.webp"
                 ;;
             
                 *"$TYPE_169"*)
                         sub_folder169=$frameFolderPathOutput
-                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=240:134  -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 169.webp"
-            
+#                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=240:134  -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 169.webp"
+                            
+                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=60,scale=240:134 "$sub_folder11"/$file_name" 169.webp"
                 ;;
             
                 *"$TYPE_916"*)
                         sub_folder916=$frameFolderPathOutput
-                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:240  -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 916.webp"
-            
+#                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:240  -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 916.webp"
+#
+                ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=60,scale=134:240 "$sub_folder11"/$file_name" 916.webp"
                 ;;
             
                 esac
@@ -133,26 +139,31 @@ echo '##########################################################################
                 
                 ###FRAME & TRANSITION
                 case $file in
-            
+
                 *"$TYPE_11"*)
                         sub_folder11=$frameFolderPathOutput
-                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:134 -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 11.webp"
+#                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:134 -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 11.webp"
+                        
+                    ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=60,scale=96:96 "$sub_folder11"/$file_name" 11.webp"
+
                 ;;
-            
+
                 *"$TYPE_169"*)
                         sub_folder169=$frameFolderPathOutput
-                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=240:134  -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 169.webp"
-            
+#                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=240:134  -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 169.webp"
+                        
+#                    ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=60,scale=240:134 "$sub_folder11"/$file_name" 169.webp"
+
                 ;;
-            
+
                 *"$TYPE_916"*)
                         sub_folder916=$frameFolderPathOutput
-                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:240  -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 916.webp"
-            
+#                        ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=134:240  -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name" 916.webp"
+                        
+#                    ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=60,scale=134:240 "$sub_folder11"/$file_name" 916.webp"
                 ;;
-            
                 esac
-            
+                
             done
             echo "[Frames]  ------------- finished"
             
@@ -181,7 +192,10 @@ echo '##########################################################################
                     file_name=${f[0]}
                 ###TITLE
                 sub_folder11=$frameFolderPathOutput
-                ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=240:134 -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name".webp"
+#                ffmpeg -c:v libvpx-vp9 -i "$file" -vf scale=240:134 -frames:v 60 -loop 0 -c:v libwebp -y "$sub_folder11"/$file_name".webp"
+                    
+                ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=60,scale=240:134 "$sub_folder11"/$file_name".webp"
+
           
             done
             echo "[Stickers]  ------------- finished"
