@@ -44,7 +44,7 @@ echo '##########################################################################
 
                 for file in $stickersFolderPathInput
                 do
-                    f="$(basename -- $file)"
+                    f="$(basename $file .webm)"
                     file_name=${f[0]}
                     arrIN=(${file_name//./ })
                     folder=${arrIN[0]}
@@ -59,11 +59,13 @@ echo '##########################################################################
                 ## '-c:v libvpx-vp9 -i "${file.path}" -vf fps=30 "${framesDir.path}/frame_%d.png" -y'
                 for file in $stickersFolderPathInput
                 do
-                    f="$(basename -- $file)"
+                    f="$(basename $file .webm)"
                     file_name=${f[0]}
 
                     sub_folder=$stickerFolderPathOutput/$file_name
+                    echo "HAHA >>> $sub_folder"
                     ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=$FPS,scale=480:480  "$sub_folder"/frame_%d.png
+
                 done
                 echo "[Sticker]  ------------- finished"
             
