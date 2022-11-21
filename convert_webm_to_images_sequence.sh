@@ -64,7 +64,8 @@ echo '##########################################################################
 
                     sub_folder=$stickerFolderPathOutput/$file_name
                     echo "HAHA >>> $sub_folder"
-                    ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=$FPS,scale=480:480  "$sub_folder"/frame_%d.png
+#                    ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=$FPS,scale=480:480  "$sub_folder"/frame_%d.png
+                    ffmpeg -c:v libvpx-vp9 -i "$file" -vf fps=$FPS,scale=iw/2:ih/2  "$sub_folder"/frame_%d.png
 
                 done
                 echo "[Sticker]  ------------- finished"
